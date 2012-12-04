@@ -1,0 +1,157 @@
+## Senario
+Scenario.name = CS540.reference_senario
+Scenario.simulateConnections = true
+Scenario.updateInterval = 0.1
+# ~ 12h
+Scenario.endTime = 43k
+Scenario.nrofHostGroups = 11
+
+## Group common settings
+Group.router = SprayAndWaitRouter
+Group.bufferSize = 5M
+# transmit speed (Bps)
+Group.transmitSpeed = 250k
+# min and max wait time for comm (s)
+Group.waitTime = 20, 60
+# min and max nodes' speed (m/s) average for a human is 1.5
+Group.speed = 0.5, 2.5
+# nb of nodes
+# cannot move out of the trails
+Group.okMaps = 1
+
+## Router params.
+# number of transmition before wait
+SprayAndWaitRouter.nrofCopies = 5
+SprayAndWaitRouter.binaryMode = true
+
+# Group1 : hikers
+Group1.groupID = hikers-
+Group1.nrofHosts = 20
+# nodes go from A to B using shortest path
+Group1.movementModel = MapBasedMovement
+Group1.routeFile = ../config/maps/trails.wkt
+# Ping-pong routes (not circular)
+Group1.routeType = 2
+# devices' radio range (m)
+Group1.transmitRange = 5
+
+# Group2 : sensor 1
+Group2.groupID = sensor1-
+Group2.nrofHosts = 1
+Group2.movementModel = StationaryMovement
+Group2.nodeLocation = 500, 500
+# devices' radio range (m)
+Group2.transmitRange = 5
+
+# Group3 : sensor 2
+Group3.groupID = sensor2-
+Group3.nrofHosts = 1
+Group3.movementModel = StationaryMovement
+Group3.nodeLocation = 2000, 2000
+# devices' radio range (m)
+Group3.transmitRange = 5
+
+# Group4 : sensor 3
+Group4.groupID = sensor3-
+Group4.nrofHosts = 1
+Group4.movementModel = StationaryMovement
+Group4.nodeLocation = 3002, 1000
+# devices' radio range (m)
+Group4.transmitRange = 5
+
+# Group5 : sensor 4
+Group5.groupID = sensor4-
+Group5.nrofHosts = 1
+Group5.movementModel = StationaryMovement
+Group5.nodeLocation = 3006, 1000
+# devices' radio range (m)
+Group5.transmitRange = 5
+
+# Group6 : sensor 5
+Group6.groupID = sensor5-
+Group6.nrofHosts = 1
+Group6.movementModel = StationaryMovement
+Group6.nodeLocation = 3000, 4000
+# devices' radio range (m)
+Group6.transmitRange = 5
+
+# Group7 : sensor 6
+Group7.groupID = sensor6-
+Group7.nrofHosts = 1
+Group7.movementModel = StationaryMovement
+Group7.nodeLocation = 2000, 3500
+# devices' radio range (m)
+Group7.transmitRange = 5
+
+# Group8 : sensor 7
+Group8.groupID = sensor7-
+Group8.nrofHosts = 1
+Group8.movementModel = StationaryMovement
+Group8.nodeLocation = 3000, 3000
+# devices' radio range (m)
+Group8.transmitRange = 5
+
+# Group9 : end point 1
+Group9.groupID = endpoint1-
+Group9.nrofHosts = 1
+Group9.movementModel = StationaryMovement
+Group9.nodeLocation = 50, 50
+# devices' radio range (m)
+Group9.transmitRange = 20
+
+# Group10 : end point 2
+Group10.groupID = endpoint2-
+Group10.nrofHosts = 1
+Group10.movementModel = StationaryMovement
+Group10.nodeLocation = 4000, 5000
+# devices' radio range (m)
+Group10.transmitRange = 20
+
+# Group11 : end point 3
+Group11.groupID = endpoint3-
+Group11.nrofHosts = 1
+Group11.movementModel = StationaryMovement
+Group11.nodeLocation = 0, 5000
+# devices' radio range (m)
+Group11.transmitRange = 20
+
+## Events
+# one event source (sensors)
+Events.nrof = 1
+
+# Event 1 : sensors
+Events1.class = MessageEventGenerator
+# min and max interval between events
+Events1.interval = 60, 300
+# messages' size (Bytes)
+Events1.size = 200k
+Events1.hosts = 20,26
+Events1.toHosts = 27,29
+Events1.prefix = sensor_ev
+
+## Movement model
+# world size (m)
+MovementModel.worldSize = 5000, 5000
+# do not wait to start the simulation
+MovementModel.warmup = 0
+MapBasedMovement.nrofMapFiles = 1
+MapBasedMovement.mapFile1 = ../config/maps/trails.wkt
+
+## Optimization
+Optimization.connectionAlg = 2
+Optimization.cellSizeMult = 5
+Optimization.randomizeUpdateOrder = true
+
+## Report
+Report.nrofReports = 3
+Report.warmup = 0
+Report.reportDir = ../reports/
+Report.report1 = MessageStatsReport
+Report.report2 = MessageDeliveryReport
+Report.report3 = TotalContactTimeReport
+
+## GUI
+#GUI.UnderlayImage.fileName = underlay.png
+# size of underlay
+#GUI.UnderlayImage.offset = 64, 20
+GUI.EventLogPanel.nrofEvents = 30
