@@ -11,6 +11,7 @@ import core.Connection;
 import core.DTNHost;
 import core.Message;
 import core.Settings;
+import core.SimClock;
 
 /**
  * Implementation of Spray and wait router as depicted in 
@@ -39,7 +40,7 @@ public class SprayAndWaitRouter extends ActiveRouter {
 	private boolean isBinary;
 	//cs540
 	private double shortAgeLimit;
-	private double LongAgeLimit;
+	private double longAgeLimit;
 	private double age;
 
 	public SprayAndWaitRouter(Settings s) {
@@ -92,7 +93,7 @@ public class SprayAndWaitRouter extends ActiveRouter {
 	//Add cs540
 	@Override
 	protected int startTransfer(Message m, Connection con) {
-		else if (m.getTo() == con.getOtherNode(this.getHost())) 
+		if (m.getTo() == con.getOtherNode(this.getHost())) 
 			this.age = SimClock.getTime(); //Reset age when sending to end node
 		return super.startTransfer(m, con);
 	}
@@ -101,12 +102,12 @@ public class SprayAndWaitRouter extends ActiveRouter {
 	@Override
 	protected int checkReceiving(Message m) {
 		if (m.getHops().size() > 0
-				&& this.getHost != m.getTo()
+				&& this.getHost() != m.getTo()
 				&& SimClock.getTime() - age > this.shortAgeLimit 
 				&& SimClock.getTime() - age < this.longAgeLimit)
 			return TRY_LATER_BUSY;
 			
-		return super.checkRceiving(m);
+		return super.checkReceiving(m);
 }
 	
 	@Override 
