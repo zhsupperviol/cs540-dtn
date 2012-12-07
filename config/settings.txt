@@ -24,96 +24,119 @@ Group.okMaps = 1
 SprayAndWaitRouter.nrofCopies = 5
 SprayAndWaitRouter.binaryMode = true
 
-# Group1 : hikers
-Group1.groupID = hikers-
-Group1.nrofHosts = 20
+# Group1 : hikers 1
+Group1.groupID = hikers-day1-
+Group1.nrofHosts = 7
 # nodes go from A to B using shortest path
-Group1.movementModel = MapBasedMovement
-Group1.routeFile = ../config/maps/trails.wkt
+Group1.movementModel = MapRouteMovement
+Group1.routeFile = ../config/maps/route-day1.wkt
 # Ping-pong routes (not circular)
 Group1.routeType = 2
 # devices' radio range (m)
 Group1.transmitRange = 5
 
-# Group2 : sensor 1
-Group2.groupID = sensor1-
-Group2.nrofHosts = 1
-Group2.movementModel = StationaryMovement
-Group2.nodeLocation = 500, 500
+# Group2 : hikers 2
+Group2.groupID = hikers-day2-
+Group2.nrofHosts = 7
+# nodes go from A to B using shortest path
+Group2.movementModel = MapRouteMovement
+Group2.routeFile = ../config/maps/route-day2.wkt
+# Ping-pong routes (not circular)
+Group2.routeType = 2
 # devices' radio range (m)
 Group2.transmitRange = 5
+Group2.speed = 0.5, 2.5
 
-# Group3 : sensor 2
-Group3.groupID = sensor2-
-Group3.nrofHosts = 1
-Group3.movementModel = StationaryMovement
-Group3.nodeLocation = 2000, 2000
+# Group3 : hikers 3
+Group3.groupID = hikers-week-
+Group3.nrofHosts = 6
+# nodes go from A to B using shortest path
+Group3.movementModel = MapRouteMovement
+Group3.routeFile = ../config/maps/route-week.wkt
+# Ping-pong routes (not circular)
+Group3.routeType = 1
 # devices' radio range (m)
 Group3.transmitRange = 5
 
-# Group4 : sensor 3
-Group4.groupID = sensor3-
+# Group4 : sensor 1
+Group4.groupID = sensor1-
 Group4.nrofHosts = 1
 Group4.movementModel = StationaryMovement
-Group4.nodeLocation = 3002, 1000
+Group4.nodeLocation = 500, 500
 # devices' radio range (m)
 Group4.transmitRange = 5
 
-# Group5 : sensor 4
-Group5.groupID = sensor4-
+# Group5 : sensor 2
+Group5.groupID = sensor2-
 Group5.nrofHosts = 1
 Group5.movementModel = StationaryMovement
-Group5.nodeLocation = 3006, 1000
+Group5.nodeLocation =  4500, 500
 # devices' radio range (m)
 Group5.transmitRange = 5
 
-# Group6 : sensor 5
-Group6.groupID = sensor5-
+# Group6 : sensor 3
+Group6.groupID = sensor3-
 Group6.nrofHosts = 1
 Group6.movementModel = StationaryMovement
-Group6.nodeLocation = 3000, 4000
+Group6.nodeLocation = 3002, 1000
 # devices' radio range (m)
 Group6.transmitRange = 5
 
-# Group7 : sensor 6
-Group7.groupID = sensor6-
+# Group7 : sensor 4
+Group7.groupID = sensor4-
 Group7.nrofHosts = 1
 Group7.movementModel = StationaryMovement
-Group7.nodeLocation = 2000, 3500
+Group7.nodeLocation = 3006, 1000
 # devices' radio range (m)
 Group7.transmitRange = 5
 
-# Group8 : sensor 7
-Group8.groupID = sensor7-
+# Group8 : sensor 5
+Group8.groupID = sensor5-
 Group8.nrofHosts = 1
 Group8.movementModel = StationaryMovement
-Group8.nodeLocation = 3000, 3000
+Group8.nodeLocation = 3000, 4000
 # devices' radio range (m)
 Group8.transmitRange = 5
 
-# Group9 : end point 1
-Group9.groupID = endpoint1-
+# Group9 : sensor 6
+Group9.groupID = sensor6-
 Group9.nrofHosts = 1
 Group9.movementModel = StationaryMovement
-Group9.nodeLocation = 50, 50
+Group9.nodeLocation = 2000, 3500
 # devices' radio range (m)
-Group9.transmitRange = 20
+Group9.transmitRange = 5
 
-# Group10 : end point 2
-Group10.groupID = endpoint2-
+# Group10 : sensor 7
+Group10.groupID = sensor7-
 Group10.nrofHosts = 1
 Group10.movementModel = StationaryMovement
-Group10.nodeLocation = 4000, 5000
+Group10.nodeLocation = 4500, 2000
 # devices' radio range (m)
-Group10.transmitRange = 20
+Group10.transmitRange = 5
 
-# Group11 : end point 3
-Group11.groupID = endpoint3-
+# Group11 : end point 1
+Group11.groupID = endpoint1-
 Group11.nrofHosts = 1
 Group11.movementModel = StationaryMovement
-Group11.nodeLocation = 0, 5000
+Group11.nodeLocation = 50, 50
 # devices' radio range (m)
 Group11.transmitRange = 20
+
+# Group12 : end point 2
+Group12.groupID = endpoint2-
+Group12.nrofHosts = 1
+Group12.movementModel = StationaryMovement
+Group12.nodeLocation = 4000, 5000
+# devices' radio range (m)
+Group12.transmitRange = 20
+
+# Group13 : end point 3
+Group13.groupID = endpoint3-
+Group13.nrofHosts = 1
+Group13.movementModel = StationaryMovement
+Group13.nodeLocation = 0, 5000
+# devices' radio range (m)
+Group13.transmitRange = 20
 
 ## Events
 # one event source (sensors)
